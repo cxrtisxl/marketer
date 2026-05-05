@@ -1,12 +1,26 @@
 {
   "name": "marketer",
-  "module": "index.ts",
+  "module": "src/index.ts",
   "type": "module",
   "private": true,
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "drizzle-kit": "^0.31.10",
+    "tsx": "^4.21.0"
+  },
+  "scripts": {
+    "run": "bun src/index.ts",
+    "hot": "bun --hot src/index.ts",
+    "build": "bun build src/index.ts --outdir ./dist"
   },
   "peerDependencies": {
     "typescript": "^5"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.91.1",
+    "@openrouter/sdk": "^0.12.22",
+    "dotenv": "^17.4.2",
+    "drizzle-orm": "^0.45.2",
+    "pg": "^8.20.0"
   }
 }

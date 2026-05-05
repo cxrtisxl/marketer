@@ -1,0 +1,100 @@
+{
+  "id": "d8d64cad-856e-4a4f-97e7-e67aec2dd81c",
+  "prevId": "5ff132c0-0569-4fc6-814e-4f65cd189b92",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "knowledge.ads": {
+      "name": "ads",
+      "schema": "knowledge",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "created": {
+          "name": "created",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "source_campaign_id": {
+          "name": "source_campaign_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "platform": {
+          "name": "platform",
+          "type": "platforms",
+          "typeSchema": "knowledge",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "audience_region": {
+          "name": "audience_region",
+          "type": "varchar(10)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "audience_age_min": {
+          "name": "audience_age_min",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "audience_age_max": {
+          "name": "audience_age_max",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "content": {
+          "name": "content",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "embedding": {
+          "name": "embedding",
+          "type": "vector(2048)",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {
+    "knowledge.platforms": {
+      "name": "platforms",
+      "schema": "knowledge",
+      "values": [
+        "x",
+        "facebook",
+        "instagram",
+        "google"
+      ]
+    }
+  },
+  "schemas": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

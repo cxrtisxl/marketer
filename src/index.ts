@@ -1,1 +1,3 @@
-console.log("Hello via Bun!");
+import { run } from "./scratches/embedding.ts";
+
+await run();
