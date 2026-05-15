@@ -1,6 +1,6 @@
 import { OpenRouter } from "@openrouter/sdk";
-import {db} from "../db";
-import {knowledge} from "../db";
+import { db } from "../services/db";
+import { knowledge } from "../services/db";
 import { asc, cosineDistance, sql } from "drizzle-orm";
 
 export async function run() {
@@ -23,13 +23,13 @@ export async function run() {
 
     const distance = cosineDistance(knowledge.ads.embedding, response.data[0].embedding);
     const results = await db
-        .select({
-          original: knowledge.ads.content,
-          distance: sql<number>`${distance}`
-        })
-        .from(knowledge.ads)
-        .orderBy(asc(distance))
-        .limit(5);
+      .select({
+        original: knowledge.ads.content,
+        distance: sql<number>`${distance}`
+      })
+      .from(knowledge.ads)
+      .orderBy(asc(distance))
+      .limit(5);
 
     console.log(results);
 

@@ -1,3 +1,3 @@
-import { run } from "./scratches/embedding.ts";
+import { run } from "./scratches/workflows/context_tests";
 
-await run();
+await run()
